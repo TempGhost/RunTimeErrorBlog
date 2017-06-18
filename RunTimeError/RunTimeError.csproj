@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7105A0D-DE52-43A7-9930-28DC5F11675D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RunTimeError</RootNamespace>
+    <AssemblyName>RunTimeError</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="bin\GhostChatPlusIn.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.refresh" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll.refresh" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll.refresh" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll.refresh" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll.refresh" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll.refresh" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll.refresh" />
+    <Content Include="bin\roslyn\vbc.exe.refresh" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.refresh" />
+    <Content Include="GhostChat\ckeditor\CHANGES.md" />
+    <Content Include="GhostChat\ckeditor\LICENSE.md" />
+    <Content Include="GhostChat\ckeditor\README.md" />
+    <Content Include="GhostChat\ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="GhostChat\ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="js\.eslintignore" />
+    <Content Include="js\.eslintrc.json" />
+    <Content Include="js\.gitattributes" />
+    <Content Include="js\.gitignore" />
+    <Content Include="js\.mailmap" />
+    <Content Include="js\.npmrc" />
+    <Content Include="js\.travis.yml" />
+    <Content Include="js\bower.json" />
+    <Content Include="js\build\browserstack-current.json" />
+    <Content Include="js\build\browserstack-legacy.json" />
+    <Content Include="js\build\run-browserstack.sh" />
+    <Content Include="js\Common.js1" />
+    <Content Include="js\CONTRIBUTING.md" />
+    <Content Include="js\jquery-color-master\.eslintignore" />
+    <Content Include="js\jquery-color-master\.eslintrc.json" />
+    <Content Include="js\jquery-color-master\.gitattributes" />
+    <Content Include="js\jquery-color-master\.gitignore" />
+    <Content Include="js\jquery-color-master\.mailmap" />
+    <Content Include="js\jquery-color-master\.npmrc" />
+    <Content Include="js\jquery-color-master\.travis.yml" />
+    <Content Include="js\jquery-color-master\bower.json" />
+    <Content Include="js\jquery-color-master\build\browserstack-current.json" />
+    <Content Include="js\jquery-color-master\build\browserstack-legacy.json" />
+    <Content Include="js\jquery-color-master\build\run-browserstack.sh" />
+    <Content Include="js\jquery-color-master\CONTRIBUTING.md" />
+    <Content Include="js\jquery-color-master\package.json" />
+    <Content Include="js\jquery-color-master\README.md" />
+    <Content Include="js\jquery-color-master\test\.eslintrc.json" />
+    <Content Include="js\package.json" />
+    <Content Include="js\README.md" />
+    <Content Include="js\test\.eslintrc.json" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="GhostChat\Ashx\GhostChatHandler.ashx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\GhostChatPlusIn.dll" />
+    <Content Include="bin\GhostChatPlusIn.pdb" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Css\Banner.css" />
+    <Content Include="Css\Common.css" />
+    <Content Include="GhostChat\ckeditor\adapters\jquery.js" />
+    <Content Include="GhostChat\ckeditor\build-config.js" />
+    <Content Include="GhostChat\ckeditor\ckeditor.js" />
+    <Content Include="GhostChat\ckeditor\config.js" />
+    <Content Include="GhostChat\ckeditor\contents.css" />
+    <Content Include="GhostChat\ckeditor\lang\af.js" />
+    <Content Include="GhostChat\ckeditor\lang\ar.js" />
+    <Content Include="GhostChat\ckeditor\lang\az.js" />
+    <Content Include="GhostChat\ckeditor\lang\bg.js" />
+    <Content Include="GhostChat\ckeditor\lang\bn.js" />
+    <Content Include="GhostChat\ckeditor\lang\bs.js" />
+    <Content Include="GhostChat\ckeditor\lang\ca.js" />
+    <Content Include="GhostChat\ckeditor\lang\cs.js" />
+    <Content Include="GhostChat\ckeditor\lang\cy.js" />
+    <Content Include="GhostChat\ckeditor\lang\da.js" />
+    <Content Include="GhostChat\ckeditor\lang\de-ch.js" />
+    <Content Include="GhostChat\ckeditor\lang\de.js" />
+    <Content Include="GhostChat\ckeditor\lang\el.js" />
+    <Content Include="GhostChat\ckeditor\lang\en-au.js" />
+    <Content Include="GhostChat\ckeditor\lang\en-ca.js" />
+    <Content Include="GhostChat\ckeditor\lang\en-gb.js" />
+    <Content Include="GhostChat\ckeditor\lang\en.js" />
+    <Content Include="GhostChat\ckeditor\lang\eo.js" />
+    <Content Include="GhostChat\ckeditor\lang\es.js" />
+    <Content Include="GhostChat\ckeditor\lang\et.js" />
+    <Content Include="GhostChat\ckeditor\lang\eu.js" />
+    <Content Include="GhostChat\ckeditor\lang\fa.js" />
+    <Content Include="GhostChat\ckeditor\lang\fi.js" />
+    <Content Include="GhostChat\ckeditor\lang\fo.js" />
+    <Content Include="GhostChat\ckeditor\lang\fr-ca.js" />
+    <Content Include="GhostChat\ckeditor\lang\fr.js" />
+    <Content Include="GhostChat\ckeditor\lang\gl.js" />
+    <Content Include="GhostChat\ckeditor\lang\gu.js" />
+    <Content Include="GhostChat\ckeditor\lang\he.js" />
+    <Content Include="GhostChat\ckeditor\lang\hi.js" />
+    <Content Include="GhostChat\ckeditor\lang\hr.js" />
+    <Content Include="GhostChat\ckeditor\lang\hu.js" />
+    <Content Include="GhostChat\ckeditor\lang\id.js" />
+    <Content Include="GhostChat\ckeditor\lang\is.js" />
+    <Content Include="GhostChat\ckeditor\lang\it.js" />
+    <Content Include="GhostChat\ckeditor\lang\ja.js" />
+    <Content Include="GhostChat\ckeditor\lang\ka.js" />
+    <Content Include="GhostChat\ckeditor\lang\km.js" />
+    <Content Include="GhostChat\ckeditor\lang\ko.js" />
+    <Content Include="GhostChat\ckeditor\lang\ku.js" />
+    <Content Include="GhostChat\ckeditor\lang\lt.js" />
+    <Content Include="GhostChat\ckeditor\lang\lv.js" />
+    <Content Include="GhostChat\ckeditor\lang\mk.js" />
+    <Content Include="GhostChat\ckeditor\lang\mn.js" />
+    <Content Include="GhostChat\ckeditor\lang\ms.js" />
+    <Content Include="GhostChat\ckeditor\lang\nb.js" />
+    <Content Include="GhostChat\ckeditor\lang\nl.js" />
+    <Content Include="GhostChat\ckeditor\lang\no.js" />
+    <Content Include="GhostChat\ckeditor\lang\oc.js" />
+    <Content Include="GhostChat\ckeditor\lang\pl.js" />
+    <Content Include="GhostChat\ckeditor\lang\pt-br.js" />
+    <Content Include="GhostChat\ckeditor\lang\pt.js" />
+    <Content Include="GhostChat\ckeditor\lang\ro.js" />
+    <Content Include="GhostChat\ckeditor\lang\ru.js" />
+    <Content Include="GhostChat\ckeditor\lang\si.js" />
+    <Content Include="GhostChat\ckeditor\lang\sk.js" />
+    <Content Include="GhostChat\ckeditor\lang\sl.js" />
+    <Content Include="GhostChat\ckeditor\lang\sq.js" />
+    <Content Include="GhostChat\ckeditor\lang\sr-latn.js" />
+    <Content Include="GhostChat\ckeditor\lang\sr.js" />
+    <Content Include="GhostChat\ckeditor\lang\sv.js" />
+    <Content Include="GhostChat\ckeditor\lang\th.js" />
+    <Content Include="GhostChat\ckeditor\lang\tr.js" />
+    <Content Include="GhostChat\ckeditor\lang\tt.js" />
+    <Content Include="GhostChat\ckeditor\lang\ug.js" />
+    <Content Include="GhostChat\ckeditor\lang\uk.js" />
+    <Content Include="GhostChat\ckeditor\lang\vi.js" />
+    <Content Include="GhostChat\ckeditor\lang\zh-cn.js" />
+    <Content Include="GhostChat\ckeditor\lang\zh.js" />
+    <Content Include="GhostChat\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="GhostChat\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="GhostChat\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="GhostChat\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="GhostChat\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="GhostChat\ckeditor\plugins\icons.png" />
+    <Content Include="GhostChat\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="GhostChat\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="GhostChat\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="GhostChat\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="GhostChat\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="GhostChat\ckeditor\samples\css\samples.css" />
+    <Content Include="GhostChat\ckeditor\samples\img\github-top.png" />
+    <Content Include="GhostChat\ckeditor\samples\img\header-bg.png" />
+    <Content Include="GhostChat\ckeditor\samples\img\header-separator.png" />
+    <Content Include="GhostChat\ckeditor\samples\img\logo.png" />
+    <Content Include="GhostChat\ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="GhostChat\ckeditor\samples\index.html" />
+    <Content Include="GhostChat\ckeditor\samples\js\sample.js" />
+    <Content Include="GhostChat\ckeditor\samples\js\sf.js" />
+    <Content Include="GhostChat\ckeditor\samples\old\ajax.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\api.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\appendto.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="GhostChat\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="GhostChat\ckeditor\samples\old\assets\sample.jpg" />
+    <Content Include="GhostChat\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="GhostChat\ckeditor\samples\old\datafiltering.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="GhostChat\ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\divreplace.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\index.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\inlineall.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\jquery.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\readonly.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\replacebycode.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\sample.css" />
+    <Content Include="GhostChat\ckeditor\samples\old\sample.js" />
+    <Content Include="GhostChat\ckeditor\samples\old\tabindex.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\uicolor.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\uilanguages.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="GhostChat\ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="GhostChat\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="GhostChat\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="GhostChat\ckeditor\styles.js" />
+    <Content Include="GhostChat\Css\GhostChat.css" />
+    <Content Include="GhostChat\Js\GhostChat.js" />
+    <Content Include="Html\Banner.html" />
+    <Content Include="Html\Document1.html" />
+    <Content Include="Html\HtmlPage.html" />
+    <Content Include="Html\RunTimeLOG.html" />
+    <Content Include="Html\SnapShot.html" />
+    <Content Include="image\Banner_AboutMe.gif" />
+    <Content Include="image\Banner_BG1.gif" />
+    <Content Include="image\Banner_BG2.gif" />
+    <Content Include="image\Banner_Home.gif" />
+    <Content Include="image\Banner_Login.gif" />
+    <Content Include="image\Banner_Register.gif" />
+    <Content Include="image\Banner_RunTimeLog.gif" />
+    <Content Include="image\Banner_SnapShot.gif" />
+    <Content Include="image\BottomDesign.gif" />
+    <Content Include="image\chenzong.jpg" />
+    <Content Include="image\ContactMe.gif" />
+    <Content Include="image\ContactsList.png" />
+    <Content Include="image\ContextButton.gif" />
+    <Content Include="image\Context_Bg1.1.png" />
+    <Content Include="image\Context_Bg1.gif" />
+    <Content Include="image\Context_Bg1.png" />
+    <Content Include="image\Context_Bg2.1.png" />
+    <Content Include="image\Context_Bg2.png" />
+    <Content Include="image\Context_Bg3.1.png" />
+    <Content Include="image\Context_Bg3.png" />
+    <Content Include="image\Context_Bg4.1.png" />
+    <Content Include="image\Context_Bg4.png" />
+    <Content Include="image\index-bg-1.png" />
+    <Content Include="image\index-Bg.jpg" />
+    <Content Include="image\index-Button.png" />
+    <Content Include="image\Info.png" />
+    <Content Include="image\Loading.gif" />
+    <Content Include="image\Loading1.gif" />
+    <Content Include="image\loginBg.png" />
+    <Content Include="image\LoginBut.png" />
+    <Content Include="image\LoginInput.png" />
+    <Content Include="image\logo_left.png" />
+    <Content Include="image\logo_left1.png" />
+    <Content Include="image\logo_right.png" />
+    <Content Include="image\图层 11.png" />
+    <Content Include="image\图层 12.png" />
+    <Content Include="image\图层 13.png" />
+    <Content Include="image\图层 17.png" />
+    <Content Include="image\图层 18.png" />
+    <Content Include="image\图层 19.png" />
+    <Content Include="index.html" />
+    <Content Include="js\AUTHORS.txt" />
+    <Content Include="js\Banner.js" />
+    <Content Include="js\Common.js" />
+    <Content Include="js\external\jquery-1.10.2\jquery.js" />
+    <Content Include="js\external\jquery-1.10.2\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-1.11.3\jquery.js" />
+    <Content Include="js\external\jquery-1.11.3\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-1.12.4\jquery.js" />
+    <Content Include="js\external\jquery-1.12.4\LICENSE.txt" />
+    <Content Include="js\external\jquery-1.5.2\jquery.js" />
+    <Content Include="js\external\jquery-1.5.2\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-1.6.4\jquery.js" />
+    <Content Include="js\external\jquery-1.6.4\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-1.7.2\jquery.js" />
+    <Content Include="js\external\jquery-1.7.2\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-1.8.3\jquery.js" />
+    <Content Include="js\external\jquery-1.8.3\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-1.9.1\jquery.js" />
+    <Content Include="js\external\jquery-1.9.1\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-2.0.3\jquery.js" />
+    <Content Include="js\external\jquery-2.0.3\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-2.1.4\jquery.js" />
+    <Content Include="js\external\jquery-2.1.4\MIT-LICENSE.txt" />
+    <Content Include="js\external\jquery-2.2.4\jquery.js" />
+    <Content Include="js\external\jquery-2.2.4\LICENSE.txt" />
+    <Content Include="js\external\jquery-3.0.0\jquery.js" />
+    <Content Include="js\external\jquery-3.0.0\LICENSE.txt" />
+    <Content Include="js\external\jquery-3.1.1\jquery.js" />
+    <Content Include="js\external\jquery-3.1.1\LICENSE.txt" />
+    <Content Include="js\external\qunit\LICENSE.txt" />
+    <Content Include="js\external\qunit\qunit.css" />
+    <Content Include="js\external\qunit\qunit.js" />
+    <Content Include="js\Gruntfile.js" />
+    <Content Include="js\jquery-3.1.1.js" />
+    <Content Include="js\jquery-color-master\AUTHORS.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.10.2\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.10.2\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.11.3\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.11.3\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.12.4\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.12.4\LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.5.2\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.5.2\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.6.4\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.6.4\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.7.2\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.7.2\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.8.3\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.8.3\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-1.9.1\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-1.9.1\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-2.0.3\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-2.0.3\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-2.1.4\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-2.1.4\MIT-LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-2.2.4\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-2.2.4\LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-3.0.0\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-3.0.0\LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\jquery-3.1.1\jquery.js" />
+    <Content Include="js\jquery-color-master\external\jquery-3.1.1\LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\qunit\LICENSE.txt" />
+    <Content Include="js\jquery-color-master\external\qunit\qunit.css" />
+    <Content Include="js\jquery-color-master\external\qunit\qunit.js" />
+    <Content Include="js\jquery-color-master\Gruntfile.js" />
+    <Content Include="js\jquery-color-master\jquery.color.js" />
+    <Content Include="js\jquery-color-master\jquery.color.svg-names.js" />
+    <Content Include="js\jquery-color-master\LICENSE.txt" />
+    <Content Include="js\jquery-color-master\test\data\swarminject.js" />
+    <Content Include="js\jquery-color-master\test\index.html" />
+    <Content Include="js\jquery-color-master\test\jquery.js" />
+    <Content Include="js\jquery-color-master\test\test.html" />
+    <Content Include="js\jquery-color-master\test\unit\color.js" />
+    <Content Include="js\jquery.color.js" />
+    <Content Include="js\jquery.color.svg-names.js" />
+    <Content Include="js\LICENSE.txt" />
+    <Content Include="js\test\data\swarminject.js" />
+    <Content Include="js\test\index.html" />
+    <Content Include="js\test\jquery.js" />
+    <Content Include="js\test\test.html" />
+    <Content Include="js\test\unit\color.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GhostChat\Ashx\GhostChatHandler.ashx.cs">
+      <DependentUpon>GhostChatHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>26646</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:26646/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

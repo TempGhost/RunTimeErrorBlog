@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="GhostChat/Css/GhostChat.css" /> 
+   <link  rel="stylesheet" type="text/css" href="Css/Common.css"/>
+ <link  rel="stylesheet" type="text/css" href="Css/Banner.css"/> 
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/Common.js"></script>
+    <script type="text/javascript" src="js/Banner.js"> </script>
+    <script type="text/javascript" src="GhostChat/Js/GhostChat.js"></script>
+
+    <script src="GhostChat/ckeditor/ckeditor.js"></script>
+    <script>
+        var PerImageCount = 0;  //预加载图片计数器，当加载完成是等于BgImageArray集合的元素数量
+        var CurrIndex = 0; //轮播图片标识
+        var PassFlag = "0";//鼠标状态机
+        var PerImageArray = [];//Image对象集合 用于预加载图片
+        //var BgImageArray = ['Context_Bg1', 'Context_Bg2', 'Context_Bg3', 'Context_Bg4'];
+        var BgImageArray = [
+{ ShowImg: 'image/Context_Bg1.png', HideImg: "image/Context_Bg1.1.png" },
+{ ShowImg: 'image/Context_Bg2.png', HideImg: "image/Context_Bg2.1.png" },
+{ ShowImg: 'image/Context_Bg3.png', HideImg: "image/Context_Bg3.1.png" },
+{ ShowImg: 'image/Context_Bg4.png', HideImg: "image/Context_Bg4.1.png" }
+        ];
+        $(document).ready(function (event) {
+           // a.complete(function () { alert('done');});
+
+            //$(".ContextBg1").click(function (event) {
+            //    $(this).fadeOut("fast");
+            //    $(".ContextBg2").fadeIn("fast");
+            //});
+            $("#ContextBg").append('<Div id="LoadingImg" Class="LoadingDiv"</div>');
+            PerImage(BgImageArray);
+            CheckPerLoadSate(BgImageArray);
+
+        });
+        function CheckPerLoadSate(BgUrlArray)
+        {
+            if (PerImageCount == BgUrlArray.length) {
+                $("#LoadingImg").fadeOut('slow');
+                InitPhoto(BgUrlArray);
+            }
+            else { setTimeout(function(){ CheckPerLoadSate(BgUrlArray);},5000)};
+        }
+        function PerImage(BgUrlArray){
+            for (var i = 0; i < BgUrlArray.length; i++) {
+                PerImageArray[i] = new Image;
+                PerImageArray[i].src = BgImageArray[i].ShowImg.toString();
+                PerImageArray[i].onload = function () { PerImageCount++;}
+            }
+
+        }
+        function InitPhoto(BgUrlArray)
+        {
+            for (var i = 0; i < BgUrlArray.length; i++) {
+                $("#ContextBg").append("<div id = BgImgaeS_" + i + " class = \"ContextBgShow\" style=\"background:url(" + BgImageArray[i].ShowImg.toString() + ") no-repeat center top ;\"></div>");
+                $("#ContextBg").append("<div id = BgImgaeH_" + i + " class = \"ContextBgHide\" style=\"background:url(" + BgImageArray[i].HideImg.toString() + ") no-repeat center top ;\"></div>");
+            }
+            $(".ContextBut").fadeIn(3000, function () { LoopingContextBg(CurrIndex); });
+        }
+
+        function LoopingContextBg(index) {
+            if (PassFlag == "1") {
+                setTimeout(function () { LoopingContextBg(CurrIndex) }, 5000);
+                return;
+            }
+            if (index > BgImageArray.length - 1) {
+                index = index - BgImageArray.length;
+            }
+            $("#BgImgaeH_" + index).fadeOut(1000);
+            $("#BgImgaeS_" + index).fadeOut(1000);
+          CurrIndex = index;
+          //  CurrIndex = index;
+           // if (index > BgImageArray.length - 1) {
+        //        index = index - BgImageArray.length;
+        //    }
+          $("#BgImgaeS_" + CurrIndex).fadeIn(1000, function () {
+                //$("#BgImgaeH_" + index).fadeIn(1000);
+            });
+            var T;
+            $(".ContextBut").unbind("mousemove");
+            $(".ContextBut").unbind("mouseout");
+            $(".ContextBut").on('mouseenter', function () {
+                clearTimeout(T);
+                T = setTimeout(function () { PassFlag = "1"; $("#BgImgaeS_" + index).fadeOut(500); $("#BgImgaeH_" + CurrIndex).fadeIn(500); }, 200);
+            });
+
+            $(".ContextBut").on("mouseleave", function (e) {
+                 clearTimeout(T);
+                if (PassFlag=="1") {
+                    $("#BgImgaeH_" + CurrIndex).fadeOut(500);
+                    $("#BgImgaeS_" + CurrIndex).fadeIn(500, function () { PassFlag = "0"; });
+                }
+            });
+            setTimeout(function() { LoopingContextBg(index + 1) }, 5000);
+        }
+    </script>
+           </head>
+<body>
+    <div  class="body">
+        <div id="GhostChatingDiglog_1" class="GhostChatingDiglog" style="display: none;">
+            <div class="GhostChatingDiglogHead">
+                <span class="ChatingObject">袁总</span>
+            </div>
+            <div class="GhostChatingDiglogContent">
+                <div class="GhostChatingMsgBox">
+                    <div class="GhostChatingMsgBoxReceived">
+                        <div class="ChatingMsgBoxDate">2017-04-26 9:16:43</div>
+                        <div class="GhostChatingMsgReceived"> Hi.你到哪了</div>
+                    </div>
+                </div>
+                <div class="GhostChatingMsgBox"> 
+                    <div class="GhostChatingMsgBoxSend">
+                        <div class="ChatingMsgBoxDate">2017-04-26 9:33:52</div>
+                        <div class="GhostChatingMsgSend">10.30到</div> 
+                    </div>
+                </div>
+                
+            </div>
+            <div class="GhostChatingDiglogInputer">
+                <textarea class="GhostChatingDiglogRichTextBox" id ="editor1"></textarea>
+            </div>
+            <div class="GhostChatingDiglogBtmArea">
+                <input type="button" id="" onclick="ColseChatingDiglog()" value="关闭" class="GhostChatingDiglogCloseBut"/>
+                <input type="button" id="" onclick="SendNewMsg('GhostChatingDiglog_1')" value="发送" class="GhostChatingDiglogSendBut"/>
+            </div>
+        </div> 
+        <div id="MoveingBanner" class="Banner">
+            </div>
+
+            <div class="Context">
+                <div class="ContextBut" style="display:none">
+                    <a>WelComeToMyBlog</a>
+                </div>
+                <div id="ContextBg" class="ContextBg_Index">
+                </div>
+                <!--<div class="ContextBg2">
+
+            </div>-->
+
+            </div>
+            <div class="Bottom">
+                <ul class="BottomUl">
+                    <li><A href="#">Design By Ghost</A></li>
+                    <li> <A href="#">Contact Me</A> </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--<center class="index-Body" ><div class="Button" > </div>  </center>-->
+   
+</body>
+</html>

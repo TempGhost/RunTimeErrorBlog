@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        JQ重复触发事件导致动画重复播放问题及解决方法
+        当你给某个元素注册某个事件中使用了JQ中类似fadeIn之类的效果，而又在这个或别的元素中注册事件包含了fadeOut之类的效果时。
+        由于有动画渐变(延时?)效果，往往需要一段时间才能播放完。而在这个过程如果用户再次触发这个事件，则会导致动画重复播放。
+        而如果用户疯狂的触发这个事件，则甚至出现用户实际在已经停止操作了十几秒。但某个div还在疯狂的淡入淡出。
+        大部分情况下，这是我们不想看到的。
+        对于这种情况，有两种解决方法。
+        一种使用注册延时函数和注销延时函数加状态标识变量。
+        以本站首页轮播模块中的部分代码为例
+        $(".ContextBut").on('mouseenter', function () {
+       // clearTimeout(T);//
+        T = setTimeout(function () {  //延时函数
+            PassFlag = "1"; //事件是否被触发的标识 停止轮播
+            $("#BgImgaeS_" + index).fadeOut(800);//模糊层图片淡出
+            $("#BgImgaeH_" + CurrIndex).fadeIn(800);//清晰层图片淡入
+             }, 100);
+        });
+
+        $(".ContextBut").on("mouseleave", function (e) {
+        clearTimeout(T);//清除延时函数
+        if (PassFlag=="1") { //判断时否有执行到清晰模糊图片层的互换
+        $("#BgImgaeH_" + CurrIndex).fadeOut(800); 
+        $("#BgImgaeS_" + CurrIndex).fadeIn(800, function () {
+         PassFlag = "0"; //标识归零 表示鼠标移开，可以继续轮播
+         });
+        }
+        });
+        这就是一段简单鼠标带动画的鼠标移入切换图片的代码。 
+        可以看到，到用户触发mouseenter(鼠标移入)事件的时候，动画实际被延时了100毫秒执行，如果在这100毫秒里面。用户了又触发了mouseleave（鼠标移出）事件。
+        则上面注册的延时函数则被注销，那么如何得知上面注册的延时函数有没有被执行呢。没错就是通过PassFlag中的值来判断了。PassFlag 这个变量本来是用来控制
+        图片轮播的，在这里还有了另外的用途，清晰的编程思路还是给我带来不少好处。
+        另外一种方法则是使用jq中hover事件filter选择器来解决这个问题
+        在本站的淡入式透明登录框种就是用了这种方法来解决这个问题的。
+        以下是部分代码
+        $("#Login").hover( function (event) {
+        $(".LoginBlock")
+        .filter(':not(:animated)')//选择器 排除掉动画还没播放完成的元素，在这种情况下，如果.LoginBlock元素仍有动画未播放完成则没有元素被fadein
+        .fadeIn(200);
+        }, function () {
+        $(".LoginBlock").on("mouseleave", function () {
+        $(".LoginBlock").fadeOut('fast');
+        });
+        }
+        );
+        在jq的hover事件中可以注册两个事件，第一个鼠标移入事件，第二个鼠标移出事件，在没有注册第二事件默认移入移出都是一个即第一个事件。
+        以上，就是解决jq动画发疯的办法。
+        最后，祝大家网页中的元素都该display：none 的都乖乖的躲起来。该显示出来的都乖乖呆在布局好的位置。
+
+    </div>
+</body>
+</html>
