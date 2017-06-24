@@ -5,12 +5,18 @@ var CurrScreenX = 0;// 当前屏幕底线位置
 var CurrBottomHeight = 0;
 var CurrScrollHeight = 0;
 var LeftBannerState = 0; 
+
+
+function SandJumpUrl(url) {
+    window.location('http://' + document.domain + url);
+}
 $(document).ready(function () {
+
 
 
     $.ajax({
         type:'Get',
-        url: 'http://' + document.domain+'/html/banner.html',
+        url: 'http://' + document.domain+'/Html/Banner.html',
         dataType:'html',
         success:function(data){
             $("#MoveingBanner").append(data);
@@ -19,6 +25,7 @@ $(document).ready(function () {
             inItGhostChat("Chating", "GhostChatContent");
         }
     });
+
 
 
     CurrBannerHeight = $("#MoveingBanner").eq(0).css("height").replace("px", "");
