@@ -6,9 +6,11 @@ var CurrBottomHeight = 0;
 var CurrScrollHeight = 0;
 var LeftBannerState = 0; 
 $(document).ready(function () {
+
+
     $.ajax({
         type:'Get',
-        url: 'http://localhost:26646//html/banner.html',
+        url: 'http://' + document.domain+'/html/banner.html',
         dataType:'html',
         success:function(data){
             $("#MoveingBanner").append(data);
