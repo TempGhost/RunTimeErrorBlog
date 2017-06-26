@@ -8,7 +8,7 @@ var LeftBannerState = 0;
 
 
 function SandJumpUrl(url) {
-    window.location('http://' + document.domain + url);
+    window.location = 'http://' + document.domain +'/'+ url;
 }
 $(document).ready(function () {
 
